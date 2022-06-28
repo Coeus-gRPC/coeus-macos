@@ -31,7 +31,7 @@ struct SidebarView: View {
 	
 	private var endpointsSection: some View {
 		Section(header: Text("Endpoints")) {
-			NavigationLink(destination: SampleView()) {
+			NavigationLink(destination: ConfigAddView()) {
 				Label("Add", systemImage: "plus.app")
 			}
 			.tag("Add")
@@ -49,6 +49,12 @@ struct SidebarView: View {
 				Label("All", systemImage: "archivebox")
 			}
 			.tag("All")
+			
+			NavigationLink(destination: SampleView()) {
+				Label("New", systemImage: "arrow.up.doc")
+			}
+			.tag("New")
 		}
+		
 	}
 }
