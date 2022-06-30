@@ -8,10 +8,10 @@
 import Foundation
 
 class ConfigAddViewModel: ObservableObject {
-	func decodeConfigFile(filePath: String) -> Bool {
-		if !FileManager().fileExists(atPath: filePath) {
-				return false
-		}
-		
-	}
+//	func decodeConfigFile(filePath: String) -> Bool {
+//		if !FileManager().fileExists(atPath: filePath) {
+//				return false
+//		}
+//		
+//	}
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct CoeusMacosApp: App {
+	@StateObject private var model = CoeusMacModel()
+	
 	var body: some Scene {
 		WindowGroup {
 			NavigationView {
