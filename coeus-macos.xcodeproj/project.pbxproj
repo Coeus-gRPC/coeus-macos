@@ -1,0 +1,675 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D66DD243286CD01400E69A31 /* CoeusMacosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */; };
+		D66DD245286CD01400E69A31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD244286CD01400E69A31 /* ContentView.swift */; };
+		D66DD247286CD01500E69A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD246286CD01500E69A31 /* Assets.xcassets */; };
+		D66DD24A286CD01500E69A31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD249286CD01500E69A31 /* Preview Assets.xcassets */; };
+		D66DD255286CD01500E69A31 /* coeus_macosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD254286CD01500E69A31 /* coeus_macosTests.swift */; };
+		D66DD25F286CD01500E69A31 /* coeus_macosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD25E286CD01500E69A31 /* coeus_macosUITests.swift */; };
+		D66DD261286CD01500E69A31 /* coeus_macosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD260286CD01500E69A31 /* coeus_macosUITestsLaunchTests.swift */; };
+		D6BA49A5286CFD57000EDF1A /* coeus-core in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49A4286CFD57000EDF1A /* coeus-core */; };
+		D6BA49BC286D0043000EDF1A /* greeter.pb.go in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49AD286D0043000EDF1A /* greeter.pb.go */; };
+		D6BA49BE286D0043000EDF1A /* greeter_grpc.pb.go in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49AF286D0043000EDF1A /* greeter_grpc.pb.go */; };
+		D6BA49C1286D0043000EDF1A /* testconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49B3286D0043000EDF1A /* testconfig.json */; };
+		D6BA49C6286D0043000EDF1A /* messageData.json in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49B9286D0043000EDF1A /* messageData.json */; };
+		D6BA49C7286D0043000EDF1A /* sample_repot.json in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49BB286D0043000EDF1A /* sample_repot.json */; };
+		D6BA49C8286D0C69000EDF1A /* greeter.proto in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49AE286D0043000EDF1A /* greeter.proto */; };
+		D6BA49CD286D1010000EDF1A /* CoeusConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA49CC286D1010000EDF1A /* CoeusConfig.swift */; };
+		D6BA49CF286D196C000EDF1A /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA49CE286D196C000EDF1A /* SidebarView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D66DD251286CD01500E69A31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D66DD237286CD01400E69A31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D66DD23E286CD01400E69A31;
+			remoteInfo = "coeus-macos";
+		};
+		D66DD25B286CD01500E69A31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D66DD237286CD01400E69A31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D66DD23E286CD01400E69A31;
+			remoteInfo = "coeus-macos";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D66DD23F286CD01400E69A31 /* coeus-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coeus-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeusMacosApp.swift; sourceTree = "<group>"; };
+		D66DD244286CD01400E69A31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D66DD246286CD01500E69A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D66DD249286CD01500E69A31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D66DD24B286CD01500E69A31 /* coeus_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coeus_macos.entitlements; sourceTree = "<group>"; };
+		D66DD250286CD01500E69A31 /* coeus-macosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "coeus-macosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66DD254286CD01500E69A31 /* coeus_macosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coeus_macosTests.swift; sourceTree = "<group>"; };
+		D66DD25A286CD01500E69A31 /* coeus-macosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "coeus-macosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66DD25E286CD01500E69A31 /* coeus_macosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coeus_macosUITests.swift; sourceTree = "<group>"; };
+		D66DD260286CD01500E69A31 /* coeus_macosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coeus_macosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6BA49A4286CFD57000EDF1A /* coeus-core */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "coeus-core"; sourceTree = "<group>"; };
+		D6BA49AD286D0043000EDF1A /* greeter.pb.go */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = greeter.pb.go; sourceTree = "<group>"; };
+		D6BA49AE286D0043000EDF1A /* greeter.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; lineEnding = 0; path = greeter.proto; sourceTree = "<group>"; };
+		D6BA49AF286D0043000EDF1A /* greeter_grpc.pb.go */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = greeter_grpc.pb.go; sourceTree = "<group>"; };
+		D6BA49B3286D0043000EDF1A /* testconfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = testconfig.json; path = "coeus-macos/testdata/config/testconfig.json"; sourceTree = SOURCE_ROOT; };
+		D6BA49B9286D0043000EDF1A /* messageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messageData.json; sourceTree = "<group>"; };
+		D6BA49BB286D0043000EDF1A /* sample_repot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_repot.json; sourceTree = "<group>"; };
+		D6BA49CC286D1010000EDF1A /* CoeusConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeusConfig.swift; sourceTree = "<group>"; };
+		D6BA49CE286D196C000EDF1A /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D66DD23C286CD01400E69A31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66DD24D286CD01500E69A31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66DD257286CD01500E69A31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D66DD236286CD01400E69A31 = {
+			isa = PBXGroup;
+			children = (
+				D66DD241286CD01400E69A31 /* coeus-macos */,
+				D66DD253286CD01500E69A31 /* coeus-macosTests */,
+				D66DD25D286CD01500E69A31 /* coeus-macosUITests */,
+				D66DD240286CD01400E69A31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D66DD240286CD01400E69A31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D66DD23F286CD01400E69A31 /* coeus-macos.app */,
+				D66DD250286CD01500E69A31 /* coeus-macosTests.xctest */,
+				D66DD25A286CD01500E69A31 /* coeus-macosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D66DD241286CD01400E69A31 /* coeus-macos */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49CB286D0F72000EDF1A /* Model */,
+				D6BA49CA286D0F56000EDF1A /* ViewModel */,
+				D6BA49C9286D0F4E000EDF1A /* View */,
+				D6BA49AB286D0043000EDF1A /* testdata */,
+				D6BA49A4286CFD57000EDF1A /* coeus-core */,
+				D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */,
+				D66DD244286CD01400E69A31 /* ContentView.swift */,
+				D66DD246286CD01500E69A31 /* Assets.xcassets */,
+				D66DD24B286CD01500E69A31 /* coeus_macos.entitlements */,
+				D66DD248286CD01500E69A31 /* Preview Content */,
+			);
+			path = "coeus-macos";
+			sourceTree = "<group>";
+		};
+		D66DD248286CD01500E69A31 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D66DD249286CD01500E69A31 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D66DD253286CD01500E69A31 /* coeus-macosTests */ = {
+			isa = PBXGroup;
+			children = (
+				D66DD254286CD01500E69A31 /* coeus_macosTests.swift */,
+			);
+			path = "coeus-macosTests";
+			sourceTree = "<group>";
+		};
+		D66DD25D286CD01500E69A31 /* coeus-macosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D66DD25E286CD01500E69A31 /* coeus_macosUITests.swift */,
+				D66DD260286CD01500E69A31 /* coeus_macosUITestsLaunchTests.swift */,
+			);
+			path = "coeus-macosUITests";
+			sourceTree = "<group>";
+		};
+		D6BA49AB286D0043000EDF1A /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49AC286D0043000EDF1A /* proto */,
+				D6BA49B0286D0043000EDF1A /* config */,
+				D6BA49B7286D0043000EDF1A /* message */,
+				D6BA49BA286D0043000EDF1A /* report */,
+			);
+			path = testdata;
+			sourceTree = "<group>";
+		};
+		D6BA49AC286D0043000EDF1A /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49AD286D0043000EDF1A /* greeter.pb.go */,
+				D6BA49AE286D0043000EDF1A /* greeter.proto */,
+				D6BA49AF286D0043000EDF1A /* greeter_grpc.pb.go */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		D6BA49B0286D0043000EDF1A /* config */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49B3286D0043000EDF1A /* testconfig.json */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		D6BA49B7286D0043000EDF1A /* message */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49B9286D0043000EDF1A /* messageData.json */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
+		D6BA49BA286D0043000EDF1A /* report */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49BB286D0043000EDF1A /* sample_repot.json */,
+			);
+			path = report;
+			sourceTree = "<group>";
+		};
+		D6BA49C9286D0F4E000EDF1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49CE286D196C000EDF1A /* SidebarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6BA49CA286D0F56000EDF1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D6BA49CB286D0F72000EDF1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6BA49CC286D1010000EDF1A /* CoeusConfig.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D66DD23E286CD01400E69A31 /* coeus-macos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D66DD264286CD01500E69A31 /* Build configuration list for PBXNativeTarget "coeus-macos" */;
+			buildPhases = (
+				D66DD23B286CD01400E69A31 /* Sources */,
+				D66DD23C286CD01400E69A31 /* Frameworks */,
+				D66DD23D286CD01400E69A31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "coeus-macos";
+			productName = "coeus-macos";
+			productReference = D66DD23F286CD01400E69A31 /* coeus-macos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D66DD24F286CD01500E69A31 /* coeus-macosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D66DD267286CD01500E69A31 /* Build configuration list for PBXNativeTarget "coeus-macosTests" */;
+			buildPhases = (
+				D66DD24C286CD01500E69A31 /* Sources */,
+				D66DD24D286CD01500E69A31 /* Frameworks */,
+				D66DD24E286CD01500E69A31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D66DD252286CD01500E69A31 /* PBXTargetDependency */,
+			);
+			name = "coeus-macosTests";
+			productName = "coeus-macosTests";
+			productReference = D66DD250286CD01500E69A31 /* coeus-macosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D66DD259286CD01500E69A31 /* coeus-macosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D66DD26A286CD01500E69A31 /* Build configuration list for PBXNativeTarget "coeus-macosUITests" */;
+			buildPhases = (
+				D66DD256286CD01500E69A31 /* Sources */,
+				D66DD257286CD01500E69A31 /* Frameworks */,
+				D66DD258286CD01500E69A31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D66DD25C286CD01500E69A31 /* PBXTargetDependency */,
+			);
+			name = "coeus-macosUITests";
+			productName = "coeus-macosUITests";
+			productReference = D66DD25A286CD01500E69A31 /* coeus-macosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D66DD237286CD01400E69A31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					D66DD23E286CD01400E69A31 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					D66DD24F286CD01500E69A31 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = D66DD23E286CD01400E69A31;
+					};
+					D66DD259286CD01500E69A31 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = D66DD23E286CD01400E69A31;
+					};
+				};
+			};
+			buildConfigurationList = D66DD23A286CD01400E69A31 /* Build configuration list for PBXProject "coeus-macos" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D66DD236286CD01400E69A31;
+			productRefGroup = D66DD240286CD01400E69A31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D66DD23E286CD01400E69A31 /* coeus-macos */,
+				D66DD24F286CD01500E69A31 /* coeus-macosTests */,
+				D66DD259286CD01500E69A31 /* coeus-macosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D66DD23D286CD01400E69A31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6BA49C8286D0C69000EDF1A /* greeter.proto in Resources */,
+				D6BA49C7286D0043000EDF1A /* sample_repot.json in Resources */,
+				D6BA49BE286D0043000EDF1A /* greeter_grpc.pb.go in Resources */,
+				D6BA49C6286D0043000EDF1A /* messageData.json in Resources */,
+				D66DD24A286CD01500E69A31 /* Preview Assets.xcassets in Resources */,
+				D66DD247286CD01500E69A31 /* Assets.xcassets in Resources */,
+				D6BA49C1286D0043000EDF1A /* testconfig.json in Resources */,
+				D6BA49A5286CFD57000EDF1A /* coeus-core in Resources */,
+				D6BA49BC286D0043000EDF1A /* greeter.pb.go in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66DD24E286CD01500E69A31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66DD258286CD01500E69A31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D66DD23B286CD01400E69A31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D66DD245286CD01400E69A31 /* ContentView.swift in Sources */,
+				D6BA49CF286D196C000EDF1A /* SidebarView.swift in Sources */,
+				D6BA49CD286D1010000EDF1A /* CoeusConfig.swift in Sources */,
+				D66DD243286CD01400E69A31 /* CoeusMacosApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66DD24C286CD01500E69A31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D66DD255286CD01500E69A31 /* coeus_macosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66DD256286CD01500E69A31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D66DD261286CD01500E69A31 /* coeus_macosUITestsLaunchTests.swift in Sources */,
+				D66DD25F286CD01500E69A31 /* coeus_macosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D66DD252286CD01500E69A31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D66DD23E286CD01400E69A31 /* coeus-macos */;
+			targetProxy = D66DD251286CD01500E69A31 /* PBXContainerItemProxy */;
+		};
+		D66DD25C286CD01500E69A31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D66DD23E286CD01400E69A31 /* coeus-macos */;
+			targetProxy = D66DD25B286CD01500E69A31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D66DD262286CD01500E69A31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D66DD263286CD01500E69A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D66DD265286CD01500E69A31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "coeus-macos/coeus_macos.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"coeus-macos/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Coeus;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "coeus.coeus-macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D66DD266286CD01500E69A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "coeus-macos/coeus_macos.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"coeus-macos/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Coeus;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "coeus.coeus-macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D66DD268286CD01500E69A31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "coeus.coeus-macosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coeus-macos.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/coeus-macos";
+			};
+			name = Debug;
+		};
+		D66DD269286CD01500E69A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "coeus.coeus-macosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coeus-macos.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/coeus-macos";
+			};
+			name = Release;
+		};
+		D66DD26B286CD01500E69A31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "coeus.coeus-macosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "coeus-macos";
+			};
+			name = Debug;
+		};
+		D66DD26C286CD01500E69A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "coeus.coeus-macosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "coeus-macos";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D66DD23A286CD01400E69A31 /* Build configuration list for PBXProject "coeus-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66DD262286CD01500E69A31 /* Debug */,
+				D66DD263286CD01500E69A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D66DD264286CD01500E69A31 /* Build configuration list for PBXNativeTarget "coeus-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66DD265286CD01500E69A31 /* Debug */,
+				D66DD266286CD01500E69A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D66DD267286CD01500E69A31 /* Build configuration list for PBXNativeTarget "coeus-macosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66DD268286CD01500E69A31 /* Debug */,
+				D66DD269286CD01500E69A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D66DD26A286CD01500E69A31 /* Build configuration list for PBXNativeTarget "coeus-macosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66DD26B286CD01500E69A31 /* Debug */,
+				D66DD26C286CD01500E69A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D66DD237286CD01400E69A31 /* Project object */;
+}

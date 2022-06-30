@@ -1,0 +1,11 @@
+{
+  "totalCallNum": 20,
+  "concurrent": 5,
+  "targetHost": "127.0.0.1:8080",
+  "insecure": true,
+  "timeout": -1,
+  "protoFile": "./greeter.proto",
+  "methodName": "greeterservice.Greeter.SayHello",
+  "messageDataFile": "./testdata/message/messageData.json",
+  "outputFilePath": "./output/output.json"
+}
