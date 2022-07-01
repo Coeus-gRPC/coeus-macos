@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct CoeusConfig: Codable {
+struct CoeusConfig: Codable, Identifiable {
+	var id: UUID?
+	
 	var totalCallNum: Int
 	var concurrent: Int
 	var targetHost: String

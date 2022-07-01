@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct CoeusMacosApp: App {
-	@StateObject private var model = CoeusMacModel()
+	@StateObject private var model = CoeusConfigService.shared
 	
 	var body: some Scene {
 		WindowGroup {

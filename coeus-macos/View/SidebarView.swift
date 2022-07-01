@@ -36,7 +36,7 @@ struct SidebarView: View {
 			}
 			.tag("Add")
 			
-			NavigationLink(destination: SampleView()) {
+			NavigationLink(destination: SendView()) {
 				Label("Send", systemImage: "paperplane")
 			}
 			.tag("Send")
