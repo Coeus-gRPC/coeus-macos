@@ -93,15 +93,14 @@ class CoeusConfigService: ObservableObject {
 	
 	func addConfigFile(_ filePath: URL?) -> Bool {
 		do {
-			guard let configData = try? Data(contentsOf: filePath!) else {
-					// No data in your fileURL. So no data is received. Do your task if you got no data
-					// Keep in mind that you don't have access to your result here.
-					// You can return from here.
-					return false
-			}
+			guard let configData = try? Data(contentsOf: filePath!) else { return false }
 			
 			var configStruct = try JSONDecoder().decode(CoeusConfig.self, from: configData)
-			configStruct.id = UUID()
+			let id = UUID()
+			configStruct.id = id
+			configFiles.append(configStruct)
+			
+			try FileManager.default.copyItem(at: filePath!, to: configFileDir.appending(path: "\(id.uuidString).json"))
 			
 			return true
 		} catch {
