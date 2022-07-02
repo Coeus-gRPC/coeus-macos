@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D62CC27C286FF244002A221F /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CC27B286FF244002A221F /* SendView.swift */; };
 		D66DD243286CD01400E69A31 /* CoeusMacosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */; };
-		D66DD245286CD01400E69A31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD244286CD01400E69A31 /* ContentView.swift */; };
 		D66DD247286CD01500E69A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD246286CD01500E69A31 /* Assets.xcassets */; };
 		D66DD24A286CD01500E69A31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD249286CD01500E69A31 /* Preview Assets.xcassets */; };
 		D6BA49A5286CFD57000EDF1A /* coeus-core in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49A4286CFD57000EDF1A /* coeus-core */; };
@@ -30,7 +29,6 @@
 		D62CC27B286FF244002A221F /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		D66DD23F286CD01400E69A31 /* coeus-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coeus-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeusMacosApp.swift; sourceTree = "<group>"; };
-		D66DD244286CD01400E69A31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D66DD246286CD01500E69A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D66DD249286CD01500E69A31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D66DD24B286CD01500E69A31 /* coeus_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coeus_macos.entitlements; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 		D6BA49C9286D0F4E000EDF1A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D66DD244286CD01400E69A31 /* ContentView.swift */,
 				D6BA49CE286D196C000EDF1A /* SidebarView.swift */,
 				D6BA49D1286E61E0000EDF1A /* ConfigAddView.swift */,
 				D62CC27B286FF244002A221F /* SendView.swift */,
@@ -273,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D66DD245286CD01400E69A31 /* ContentView.swift in Sources */,
 				D6BA49CF286D196C000EDF1A /* SidebarView.swift in Sources */,
 				D6BA49D2286E61E0000EDF1A /* ConfigAddView.swift in Sources */,
 				D6BA49CD286D1010000EDF1A /* CoeusConfigModel.swift in Sources */,

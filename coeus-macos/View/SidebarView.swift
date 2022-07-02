@@ -8,8 +8,10 @@
 import SwiftUI
 
 enum SidebarItem: Hashable {
-	case endpoints
-	case reports
+	case endpointsSend
+	case endpointsAdd
+	case reportsAll
+	case reportsNew
 }
 
 struct SampleView: View {
@@ -19,11 +21,12 @@ struct SampleView: View {
 }
 
 struct SidebarView: View {
-	@State private var selectedItem: SidebarItem = .endpoints
+	@State private var selectedItem: SidebarItem = .endpointsSend
 	
 	var body: some View {
 		List(selection: $selectedItem) {
 			endpointsSection
+			
 			reportsSection
 		}
 		.listStyle(.sidebar)
@@ -31,15 +34,15 @@ struct SidebarView: View {
 	
 	private var endpointsSection: some View {
 		Section(header: Text("Endpoints")) {
-			NavigationLink(destination: ConfigAddView()) {
-				Label("Add", systemImage: "plus.app")
-			}
-			.tag("Add")
-			
 			NavigationLink(destination: SendView()) {
 				Label("Send", systemImage: "paperplane")
 			}
-			.tag("Send")
+			.tag(SidebarItem.endpointsSend)
+			
+			NavigationLink(destination: ConfigAddView()) {
+				Label("Add", systemImage: "plus.app")
+			}
+			.tag(SidebarItem.endpointsAdd)
 		}
 	}
 	

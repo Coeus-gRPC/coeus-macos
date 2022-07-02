@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SendView: View {
 	var body: some View {
-		List {
+//		List {
 			ForEach(CoeusConfigService.shared.configFiles) { config in
 				Text(config.id!.uuidString)
 			}
-		}
+//		}
 	}
 }
 
