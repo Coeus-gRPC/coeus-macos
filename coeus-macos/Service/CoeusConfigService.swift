@@ -90,4 +90,24 @@ class CoeusConfigService: ObservableObject {
 		
 		return inputConfigs
 	}
+	
+	func addConfigFile(_ filePath: URL?) -> Bool {
+		do {
+			guard let configData = try? Data(contentsOf: filePath!) else {
+					// No data in your fileURL. So no data is received. Do your task if you got no data
+					// Keep in mind that you don't have access to your result here.
+					// You can return from here.
+					return false
+			}
+			
+			var configStruct = try JSONDecoder().decode(CoeusConfig.self, from: configData)
+			configStruct.id = UUID()
+			
+			return true
+		} catch {
+			print("An error occured during config file reading")
+			
+			return false
+		}
+	}
 }

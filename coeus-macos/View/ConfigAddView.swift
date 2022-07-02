@@ -9,26 +9,32 @@ import SwiftUI
 
 struct ConfigAddView: View {
 	@ObservedObject var configVM = ConfigAddViewModel()
-	@State var filename = ""
+	@State var filePath = URL(string: "")
+	@State var configFileNotValid = false
 	@State var showFileChooser = false
 
 	var body: some View {
 		VStack {
-			if filename == "" {
-				Text("No configuration uploaded, please upload a valid Coeus configuration file ending below")
-			} else {
-				Text(filename)
-			}
-			
 			Button("select File") {
 				let panel = NSOpenPanel()
 				panel.allowsMultipleSelection = false
 				panel.canChooseDirectories = false
 				if panel.runModal() == .OK {
-					self.filename = panel.url?.lastPathComponent ?? "<none>"
+					self.filePath = panel.url
 				}
+					
+				configFileNotValid = !CoeusConfigService.shared.addConfigFile(filePath)
 			}
-			.frame(maxWidth: 500, maxHeight: 500)
-		}.padding()
+		}
+		.padding()
+		.alert(
+			"Fail to Add Configuration Files", isPresented: $configFileNotValid
+		) {
+			Button("Retry") {
+				// handle retry action.
+			}
+		} message: {
+			Text("Fail to parse Coeus Config file: \(filePath?.path() ?? "") ")
+		}
 	}
 }

@@ -11,7 +11,7 @@ struct SendView: View {
 	var body: some View {
 		List {
 			ForEach(CoeusConfigService.shared.configFiles) { config in
-				Text(config.methodName)
+				Text(config.id!.uuidString)
 			}
 		}
 	}
