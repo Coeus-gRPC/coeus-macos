@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CoeusConfig: Codable, Identifiable {
+struct CoeusConfig: Codable, Identifiable, Hashable {
 	var id: UUID?
 	
 	var totalCallNum: Int

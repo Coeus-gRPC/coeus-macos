@@ -7,18 +7,45 @@
 
 import SwiftUI
 
-struct SendView: View {
+struct ConfigDisplayRowView: View {
+	var title: String
+	
 	var body: some View {
-//		List {
-			ForEach(CoeusConfigService.shared.configFiles) { config in
-				Text(config.id!.uuidString)
-			}
-//		}
+		HStack {
+			Image(systemName: "mail")
+			Text(title)
+		}
 	}
 }
 
-struct SendView_Previews: PreviewProvider {
-	static var previews: some View {
-		SendView()
+struct ConfigDetailView: View {
+	var config: CoeusConfig
+	
+	init(_ config: CoeusConfig) {
+		self.config = config
+	}
+	
+	var body: some View {
+		Text(config.targetHost)
 	}
 }
+
+struct SendView: View {
+	@State private var selectedConfig: CoeusConfig?
+	
+	var body: some View {
+		
+		NavigationView {
+			List(CoeusConfigService.shared.configFiles, selection: $selectedConfig) { config in
+				NavigationLink(destination: ConfigDetailView(config)) {
+					ConfigDisplayRowView(title: config.id!.uuidString)
+				}
+			}
+			
+			if ((selectedConfig?.id?.uuidString) == nil) {
+				Text("Please Select an config")
+			}
+		}
+	}
+}
+
