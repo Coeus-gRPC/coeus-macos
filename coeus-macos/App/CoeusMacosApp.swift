@@ -17,5 +17,13 @@ struct CoeusMacosApp: App {
 				SidebarView()
 			}
 		}
+		
+		MenuBarExtra {
+			HStack {
+				Text("Coeus Running...")
+			}
+		} label: {
+			Label("Coeus", systemImage: "paperplane.fill")
+		}
 	}
 }
