@@ -19,4 +19,17 @@ struct CoeusConfig: Codable, Identifiable, Hashable {
 	var methodName: String
 	var messageDataFile: String
 	var outputFilePath: String
+
+	init(id: UUID = UUID(), totalCallNum: Int = -1, concurrent: Int = -1, targetHost: String = "", insecure: Bool = false, timeout: Int = 0, protoFile: String = "", methodName: String = "", messageDataFile: String = "", outputFilePath: String = "") {
+		self.id = id
+		self.totalCallNum = totalCallNum
+		self.concurrent = concurrent
+		self.targetHost = targetHost
+		self.insecure = insecure
+		self.timeout = timeout
+		self.protoFile = protoFile
+		self.methodName = methodName
+		self.messageDataFile = messageDataFile
+		self.outputFilePath = outputFilePath
+	}
 }
