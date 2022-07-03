@@ -18,17 +18,6 @@ struct ConfigDisplayRowView: View {
 	}
 }
 
-struct ConfigDetailView: View {
-	var config: CoeusConfig
-	
-	init(_ config: CoeusConfig) {
-		self.config = config
-	}
-	
-	var body: some View {
-		Text(config.targetHost)
-	}
-}
 
 struct SendView: View {
 	@State private var selectedConfig: CoeusConfig?
