@@ -13,9 +13,7 @@ struct CoeusMacosApp: App {
 	
 	var body: some Scene {
 		WindowGroup {
-			NavigationView {
-				SidebarView()
-			}
+			ContentView()
 		}
 		
 		MenuBarExtra {

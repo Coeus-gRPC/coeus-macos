@@ -21,7 +21,7 @@ var defaultConfigStr = """
 }
 """
 
-@MainActor
+//@MainActor
 class CoeusConfigService: ObservableObject {
 	static let shared = CoeusConfigService()
 	
