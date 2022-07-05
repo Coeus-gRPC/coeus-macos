@@ -46,15 +46,25 @@ struct SendView: View {
 			}
 		}
 		.padding(.horizontal, -15)
-		.frame(minWidth: 100)
+		.frame(minWidth: 125)
 	}
 	
 	var body: some View {
 		HSplitView {
 			ConfigSelection
-			
+
 			ConfigDetailView(config: $selected)
 				.frame(minWidth: 550, maxWidth: .infinity, maxHeight: .infinity)
+		}
+		.toolbar {
+			ToolbarItem(placement: .primaryAction) {
+				Button {
+					print("add a config")
+				} label: {
+					Image(systemName: "plus.square")
+				}
+			}
+			
 		}
 	}
 }
