@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ConfigDisplayRowView: View {
+	var isSelected: Bool
 	var title: String
 	
 	var body: some View {
@@ -15,45 +16,33 @@ struct ConfigDisplayRowView: View {
 			Image(systemName: "mail")
 			Text(title)
 		}
+		.background(self.isSelected ? Color.accentColor : Color.white)
 	}
 }
 
 
 struct SendView: View {
-	@State private var selectedConfig: CoeusConfig?
+	@State private var selected: CoeusConfig?
 
-	var items = ["a", "b", "c"]
-	
-	var donutViewer: some View {
-		VStack {
-//			Button {
-//				print("Lalala")
-//			} label: {
-//				HStack{
-//					Image(systemName: "plus.square")
-//					Text("Add a Configuration")
-//				}
-//			}.buttonStyle(GrowingButton())
-
-			List(CoeusConfigService.shared.configFiles, selection: $selectedConfig) { config in
-				NavigationLink(destination: ConfigDetailView(config)) {
-						ConfigDisplayRowView(title: config.id!.uuidString)
+	var body: some View {
+		HSplitView {
+			List {
+				ForEach(CoeusConfigService.shared.configFiles, id: \.self) { config in
+					Button {
+						if self.selected == config {
+							self.selected = nil
+						} else {
+							self.selected = config
+						}
+					} label: {
+						ConfigDisplayRowView(isSelected: self.selected == config, title: config.id!.uuidString)
+					}
 				}
 			}
-		}
-//		.frame(minWidth: 50, minHeight: 400)
-		.listRowInsets(.init())
-		.padding(.horizontal, 40)
-		.padding(.vertical)
-		.background()
-	}
-	
-	var body: some View {
-		NavigationSplitView {
-			donutViewer
-				.frame(minWidth: 100, maxWidth: 200, minHeight: 100, maxHeight: .infinity)
-		} detail: {
-			Image(systemName: "doc.circle")
+			.frame(minWidth: 100)
+			
+			ConfigDetailView(config: $selected)
+				.frame(minWidth: 550, maxWidth: .infinity, maxHeight: .infinity)
 		}
 	}
 }

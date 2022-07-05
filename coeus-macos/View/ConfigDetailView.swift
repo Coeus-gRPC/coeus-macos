@@ -77,11 +77,7 @@ struct ConfigEditView: View {
 }
 
 struct ConfigDetailView: View {
-	var config: CoeusConfig
-	
-	init(_ config: CoeusConfig) {
-		self.config = config
-	}
+	@Binding var config: CoeusConfig?
 	
 	var invokeButton: some View {
 		Button {
@@ -92,23 +88,21 @@ struct ConfigDetailView: View {
 	}
 	
 	var body: some View {
-		VStack {
-			HStack {
-				Text(config.targetHost).bold().font(.title)
+		if config != nil {
+			VStack {
+				HStack {
+					Text(config!.targetHost).bold().font(.title)
+					Spacer()
+					
+					invokeButton
+					
+				}.padding()
+				
+				ConfigEditView(config: config!)
 				Spacer()
-				
-				invokeButton
-				
-			}.padding()
-			
-			ConfigEditView(config: config)
-			Spacer()
+			}
+		} else {
+			Text("Please Select a config")
 		}
 	}
-}
-
-struct ConfigDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfigDetailView(CoeusConfig(totalCallNum: 5, concurrent: 2, targetHost: "api.coeustool.dev:443", insecure: false, timeout: 5000, protoFile: "", methodName: "greeterservice.Greeter.SayHello", messageDataFile: "", outputFilePath: ""))
-    }
 }
