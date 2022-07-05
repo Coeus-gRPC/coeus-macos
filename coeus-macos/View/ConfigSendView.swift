@@ -29,26 +29,29 @@ struct ConfigDisplayRowView: View {
 struct SendView: View {
 	@State private var selected: CoeusConfig?
 
+	var ConfigSelection: some View {
+		List {
+			Section {
+				ForEach(CoeusConfigService.shared.configFiles, id: \.self) { config in
+					Button {
+						if self.selected == config {
+							self.selected = nil
+						} else {
+							self.selected = config
+						}
+					} label: {
+						ConfigDisplayRowView(isSelected: self.selected == config, title: config.id!.uuidString)
+					}.buttonStyle(.plain)
+				}
+			}
+		}
+		.padding(.horizontal, -15)
+		.frame(minWidth: 100)
+	}
+	
 	var body: some View {
 		HSplitView {
-			List {
-				Section {
-					ForEach(CoeusConfigService.shared.configFiles, id: \.self) { config in
-						Button {
-							if self.selected == config {
-								self.selected = nil
-							} else {
-								self.selected = config
-							}
-						} label: {
-							ConfigDisplayRowView(isSelected: self.selected == config, title: config.id!.uuidString)
-						}.buttonStyle(.plain)
-					}
-				}
-
-			}
-			.padding(.horizontal, -15)
-			.frame(minWidth: 100)
+			ConfigSelection
 			
 			ConfigDetailView(config: $selected)
 				.frame(minWidth: 550, maxWidth: .infinity, maxHeight: .infinity)

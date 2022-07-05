@@ -9,12 +9,12 @@ import SwiftUI
 
 enum CallDataType {
 	case message
-	case method
+//	case method
 	case protobuf
 }
 
 struct MessageEditView: View {
-	@State private var fullText: String = "..."
+	@State private var fullText: String = "Please compose the message in JSON"
 	@State var config = CoeusConfig()
 	
 	init(config: CoeusConfig) {
@@ -47,8 +47,6 @@ struct SelectedEditorView: View {
 		switch selected {
 		case .message:
 			MessageEditView(config: config)
-		case .method:
-			Text("Method edit")
 		case .protobuf:
 			Text("Protobuf edit")
 		}
@@ -63,9 +61,8 @@ struct ConfigEditView: View {
 		Form {
 			Section() {
 				Picker("Edit Data", selection: $selectedDataType) {
-					Text("Messages").tag(CallDataType.message)
-					Text("Method").tag(CallDataType.method)
 					Text("Protobuf").tag(CallDataType.protobuf)
+					Text("Messages").tag(CallDataType.message)
 				}
 				.pickerStyle(.segmented)
 			}
@@ -79,7 +76,7 @@ struct ConfigEditView: View {
 struct ConfigDetailView: View {
 	@Binding var config: CoeusConfig?
 	
-	var invokeButton: some View {
+	var InvokeButton: some View {
 		Button {
 			print("Invoking")
 		} label: {
@@ -87,19 +84,30 @@ struct ConfigDetailView: View {
 		}
 	}
 	
+	var ConfigEditSection: some View {
+		VStack {
+			HStack {
+				Text(config!.targetHost).bold().font(.title)
+				Spacer()
+				InvokeButton
+			}.padding()
+			
+			ConfigEditView(config: config!)
+		}
+	}
+	
+	var RemoteCallResponseSection: some View {
+		Text("Invoke above methods to display a response")
+	}
+	
 	var body: some View {
 		if config != nil {
-			VStack {
-				HStack {
-					Text(config!.targetHost).bold().font(.title)
-					Spacer()
-					
-					invokeButton
-					
-				}.padding()
+			VSplitView {
+				ConfigEditSection
+					.frame(minHeight: 250, idealHeight: 350)
 				
-				ConfigEditView(config: config!)
-				Spacer()
+				RemoteCallResponseSection
+					.frame(maxWidth: .infinity, minHeight: 250, maxHeight: .infinity)
 			}
 		} else {
 			Text("Please Select a config")
