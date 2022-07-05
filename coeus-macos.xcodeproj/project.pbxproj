@@ -16,6 +16,7 @@
 		D66DD243286CD01400E69A31 /* CoeusMacosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */; };
 		D66DD247286CD01500E69A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD246286CD01500E69A31 /* Assets.xcassets */; };
 		D66DD24A286CD01500E69A31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD249286CD01500E69A31 /* Preview Assets.xcassets */; };
+		D66E172C2874E34C00B876E8 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66E172B2874E34C00B876E8 /* ColorScheme.swift */; };
 		D6BA49A5286CFD57000EDF1A /* coeus-core in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49A4286CFD57000EDF1A /* coeus-core */; };
 		D6BA49BC286D0043000EDF1A /* greeter.pb.go in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49AD286D0043000EDF1A /* greeter.pb.go */; };
 		D6BA49BE286D0043000EDF1A /* greeter_grpc.pb.go in Resources */ = {isa = PBXBuildFile; fileRef = D6BA49AF286D0043000EDF1A /* greeter_grpc.pb.go */; };
@@ -41,6 +42,7 @@
 		D66DD246286CD01500E69A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D66DD249286CD01500E69A31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D66DD24B286CD01500E69A31 /* coeus_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = coeus_macos.entitlements; sourceTree = "<group>"; };
+		D66E172B2874E34C00B876E8 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		D6BA49A4286CFD57000EDF1A /* coeus-core */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "coeus-core"; sourceTree = "<group>"; };
 		D6BA49AD286D0043000EDF1A /* greeter.pb.go */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = greeter.pb.go; sourceTree = "<group>"; };
 		D6BA49AE286D0043000EDF1A /* greeter.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; lineEnding = 0; path = greeter.proto; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				D6BA49CC286D1010000EDF1A /* CoeusConfigModel.swift */,
+				D66E172B2874E34C00B876E8 /* ColorScheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				D6BA49CD286D1010000EDF1A /* CoeusConfigModel.swift in Sources */,
 				D62B62262873B2FE00746ADF /* ViewModifiers.swift in Sources */,
 				D6E2C1D6286F70DF007BA899 /* CoeusConfigService.swift in Sources */,
+				D66E172C2874E34C00B876E8 /* ColorScheme.swift in Sources */,
 				D6E2C1D3286E8CBD007BA899 /* ConfigAddViewModel.swift in Sources */,
 				D62B622D2873BF4500746ADF /* DetailColumn.swift in Sources */,
 				D62B62282873B9F200746ADF /* ContentView.swift in Sources */,
