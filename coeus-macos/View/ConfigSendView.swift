@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ConfigDisplayRowView: View {
 	@State var config: CoeusConfig
-	@State var isSelected: Bool
-	
+	var isSelected: Bool
+
 	var body: some View {
 		HStack {
 			Rectangle()
@@ -33,7 +33,6 @@ struct SendView: View {
 	init() {
 		self.configService = CoeusConfigService.shared
 		self.configService.syncConfigFiles()
-		
 		self.selected = nil
 	}
 	
