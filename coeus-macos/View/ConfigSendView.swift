@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ConfigDisplayRowView: View {
-	var isSelected: Bool
-	var title: String
+	@State var config: CoeusConfig
+	@State var isSelected: Bool
 	
 	var body: some View {
 		HStack {
@@ -18,7 +18,7 @@ struct ConfigDisplayRowView: View {
 				.frame(width: 3, height: 30)
 				
 			Image(systemName: "mail")
-			Text(title)
+			Text(config.id!.uuidString)
 				.fixedSize()
 		}
 		.background(self.isSelected ? Color.LightGrey : .clear)
@@ -30,6 +30,13 @@ struct SendView: View {
 	@ObservedObject var configService = CoeusConfigService.shared
 	@State private var selected: CoeusConfig?
 
+	init() {
+		self.configService = CoeusConfigService.shared
+		self.configService.syncConfigFiles()
+		
+		self.selected = nil
+	}
+	
 	var ConfigSelection: some View {
 		List {
 			Section {
@@ -41,7 +48,7 @@ struct SendView: View {
 							self.selected = config
 						}
 					} label: {
-						ConfigDisplayRowView(isSelected: self.selected == config, title: config.id!.uuidString)
+						ConfigDisplayRowView(config: config, isSelected: self.selected == config)
 					}.buttonStyle(.plain)
 				}
 			}
@@ -60,7 +67,7 @@ struct SendView: View {
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
 				Button {
-					_ = configService.createConfigFile()
+					selected = configService.createConfigFile()
 					configService.syncConfigFiles()
 				} label: {
 					Image(systemName: "plus.square")

@@ -76,12 +76,13 @@ class CoeusConfigService: ObservableObject {
 			let configs = try FileManager.default.contentsOfDirectory(at: configFileDir, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
 			
 			for configFilePath in configs {
-				print("An . config url is: \(configFilePath.path())")
-				
 				let configData = try Data(contentsOf: configFilePath)
 				var configStruct = try decoder.decode(CoeusConfig.self, from: configData)
 
-				configStruct.id = UUID()
+				let idStr = configFilePath.lastPathComponent
+				let newIdStr = String(idStr[..<(idStr.lastIndex(of: ".") ?? idStr.endIndex)])
+
+				configStruct.id = UUID(uuidString: newIdStr)
 
 				inputConfigs.append(configStruct)
 			}
@@ -94,9 +95,7 @@ class CoeusConfigService: ObservableObject {
 	
 	func syncConfigFiles() {
 		self.configFiles = readConfigFiles()
-		print("syncConfigFiles total config file coutn: \(configFiles.count)")
 	}
-	
 	
 	func addConfigFile(_ filePath: URL?) -> Bool {
 		do {
@@ -117,21 +116,20 @@ class CoeusConfigService: ObservableObject {
 		}
 	}
 	
-	func createConfigFile() -> URL? {
+	func createConfigFile() -> CoeusConfig? {
 		do {
 			let emptyConfig = CoeusConfig()
 			let encodedConfig = try JSONEncoder().encode(emptyConfig)
 			
 			let newConfigPath = configFileDir.appending(path: "/\(emptyConfig.id!.uuidString).json")
-			print(newConfigPath)
 			
 			FileManager.default.createFile(atPath: newConfigPath.path(), contents: encodedConfig)
 
-			return newConfigPath
+			return emptyConfig
 		} catch {
 			print("An error occured during config file reading")
 			
-			return URL(string: "/")
+			return nil
 		}
 	}
 }
