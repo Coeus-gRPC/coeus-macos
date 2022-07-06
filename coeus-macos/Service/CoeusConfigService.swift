@@ -127,9 +127,20 @@ class CoeusConfigService: ObservableObject {
 
 			return emptyConfig
 		} catch {
-			print("An error occured during config file reading")
+			print("An error occured during config file creation")
 			
 			return nil
+		}
+	}
+	
+	func deleteConfigFile(_ config: CoeusConfig) {
+		do {
+			let fileName = config.id?.uuidString ?? ""
+			let filePath = configFileDir.appending(path: "/\(fileName).json")
+			
+			try FileManager.default.removeItem(at: filePath)
+		} catch {
+			print("An error occured during config file removal")
 		}
 	}
 }

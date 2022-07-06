@@ -48,7 +48,19 @@ struct SendView: View {
 						}
 					} label: {
 						ConfigDisplayRowView(config: config, isSelected: self.selected == config)
-					}.buttonStyle(.plain)
+					}
+					.contextMenu {
+						Button {
+							configService.deleteConfigFile(config)
+							configService.syncConfigFiles()
+							} label: {
+								HStack {
+									Image(systemName: "minus.square")
+									Text("Menu title")
+								}
+							}
+					}
+					.buttonStyle(.plain)
 				}
 			}
 		}
