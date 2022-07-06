@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D624AF3C2879F02000EE8AC1 /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = D624AF3B2879F02000EE8AC1 /* CodeEditor */; };
 		D62B62262873B2FE00746ADF /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B62252873B2FE00746ADF /* ViewModifiers.swift */; };
 		D62B62282873B9F200746ADF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B62272873B9F200746ADF /* ContentView.swift */; };
 		D62B622A2873BCC400746ADF /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B62292873BCC400746ADF /* Sidebar.swift */; };
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D624AF3C2879F02000EE8AC1 /* CodeEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +234,9 @@
 			dependencies = (
 			);
 			name = "coeus-macos";
+			packageProductDependencies = (
+				D624AF3B2879F02000EE8AC1 /* CodeEditor */,
+			);
 			productName = "coeus-macos";
 			productReference = D66DD23F286CD01400E69A31 /* coeus-macos.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +265,9 @@
 				Base,
 			);
 			mainGroup = D66DD236286CD01400E69A31;
+			packageReferences = (
+				D624AF3A2879F02000EE8AC1 /* XCRemoteSwiftPackageReference "CodeEditor" */,
+			);
 			productRefGroup = D66DD240286CD01400E69A31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -504,6 +512,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D624AF3A2879F02000EE8AC1 /* XCRemoteSwiftPackageReference "CodeEditor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZeeZide/CodeEditor.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D624AF3B2879F02000EE8AC1 /* CodeEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D624AF3A2879F02000EE8AC1 /* XCRemoteSwiftPackageReference "CodeEditor" */;
+			productName = CodeEditor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D66DD237286CD01400E69A31 /* Project object */;
 }

@@ -6,11 +6,21 @@
 //
 
 import SwiftUI
+import CodeEditor
 
 enum CallDataType {
 	case message
 //	case method
 	case protobuf
+}
+
+struct ProtobufEditView: View {
+	@State private var protobufText: String = "Please enter the definition of your .protobuf file"
+	@State private var language = CodeEditor.Language.init(rawValue: "protobuf")
+	
+	var body: some View {
+		CodeEditor(source: $protobufText, language: language)
+	}
 }
 
 struct MessageEditView: View {
@@ -48,13 +58,13 @@ struct SelectedEditorView: View {
 		case .message:
 			MessageEditView(config: config)
 		case .protobuf:
-			Text("Protobuf edit")
+			ProtobufEditView()
 		}
 	}
 }
 
 struct ConfigEditView: View {
-	@State private var selectedDataType: CallDataType = .message
+	@State private var selectedDataType: CallDataType = .protobuf
 	@State var config: CoeusConfig
 	
 	var body: some View {
