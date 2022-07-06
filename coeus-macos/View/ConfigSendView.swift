@@ -27,12 +27,13 @@ struct ConfigDisplayRowView: View {
 
 
 struct SendView: View {
+	@ObservedObject var configService = CoeusConfigService.shared
 	@State private var selected: CoeusConfig?
 
 	var ConfigSelection: some View {
 		List {
 			Section {
-				ForEach(CoeusConfigService.shared.configFiles, id: \.self) { config in
+				ForEach(configService.configFiles, id: \.self) { config in
 					Button {
 						if self.selected == config {
 							self.selected = nil
@@ -59,12 +60,12 @@ struct SendView: View {
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
 				Button {
-					print("add a config")
+					_ = configService.createConfigFile()
+					configService.syncConfigFiles()
 				} label: {
 					Image(systemName: "plus.square")
 				}
 			}
-			
 		}
 	}
 }
