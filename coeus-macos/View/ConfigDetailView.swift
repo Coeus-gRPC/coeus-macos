@@ -19,7 +19,20 @@ struct ProtobufEditView: View {
 	@State private var language = CodeEditor.Language.init(rawValue: "protobuf")
 	
 	var body: some View {
-		CodeEditor(source: $protobufText, language: language)
+		VStack {
+			HStack {
+				Spacer()
+				Button {
+					print("Save pressed")
+				} label: {
+					Text("Save")
+				}
+				.standardButton()
+			}
+
+			
+			CodeEditor(source: $protobufText, language: language, theme: .init(rawValue: "xcode"))
+		}
 	}
 }
 

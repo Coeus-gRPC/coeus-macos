@@ -9,4 +9,5 @@ import SwiftUI
 
 extension Color {
 	static let LightGrey = Color("LightGrey") // 255, 119, 21, 1
+	static let LightAccent = Color("LightAccent") // FFCC80
 }

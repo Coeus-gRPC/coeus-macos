@@ -7,15 +7,31 @@
 
 import SwiftUI
 
-struct GrowingButton: ButtonStyle {
+struct StandardButton: ButtonStyle {
+	var foregroundColor: Color
+	var backgroundColor: Color
+	
   func makeBody(configuration: Configuration) -> some View {
-      configuration.label
-          .padding()
-          .tint(.accentColor)
-//          .background(.blue)
-//          .foregroundColor(.white)
-          .clipShape(Capsule())
-          .scaleEffect(configuration.isPressed ? 1.2 : 1)
-          .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+		configuration.label
+			.padding(.horizontal, 6)
+			.padding(.vertical, 3)
+			.background(backgroundColor)
+			.clipShape(RoundedRectangle(cornerRadius: 4.5))
+			.foregroundColor(foregroundColor)
+			.opacity(configuration.isPressed ? 0.8 : 1.0)
   }
+}
+
+extension View {
+	func standardButton(
+		foregroundColor: Color = .white,
+		backgroundColor: Color = .accentColor
+	) -> some View {
+		self.buttonStyle(
+			StandardButton(
+				foregroundColor: foregroundColor,
+				backgroundColor: backgroundColor
+			)
+		)
+	}
 }
