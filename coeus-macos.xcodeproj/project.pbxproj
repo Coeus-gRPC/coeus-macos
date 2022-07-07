@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D624AF3C2879F02000EE8AC1 /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = D624AF3B2879F02000EE8AC1 /* CodeEditor */; };
+		D624AF3E287B60D100EE8AC1 /* ConfigDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D624AF3D287B60D100EE8AC1 /* ConfigDetailViewModel.swift */; };
 		D62B62262873B2FE00746ADF /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B62252873B2FE00746ADF /* ViewModifiers.swift */; };
 		D62B62282873B9F200746ADF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B62272873B9F200746ADF /* ContentView.swift */; };
 		D62B622A2873BCC400746ADF /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B62292873BCC400746ADF /* Sidebar.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D624AF3D287B60D100EE8AC1 /* ConfigDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDetailViewModel.swift; sourceTree = "<group>"; };
 		D62B62252873B2FE00746ADF /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		D62B62272873B9F200746ADF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D62B62292873BCC400746ADF /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				D6E2C1D2286E8CBD007BA899 /* ConfigAddViewModel.swift */,
+				D624AF3D287B60D100EE8AC1 /* ConfigDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				D66E172C2874E34C00B876E8 /* ColorScheme.swift in Sources */,
 				D6E2C1D3286E8CBD007BA899 /* ConfigAddViewModel.swift in Sources */,
 				D62B622D2873BF4500746ADF /* DetailColumn.swift in Sources */,
+				D624AF3E287B60D100EE8AC1 /* ConfigDetailViewModel.swift in Sources */,
 				D62B62282873B9F200746ADF /* ContentView.swift in Sources */,
 				D62CC27E28710895002A221F /* ConfigDetailView.swift in Sources */,
 				D62B622A2873BCC400746ADF /* Sidebar.swift in Sources */,

@@ -10,13 +10,25 @@ import CodeEditor
 
 enum CallDataType {
 	case message
-//	case method
 	case protobuf
 }
 
-struct ProtobufEditView: View {
-	@State private var protobufText: String = "Please enter the definition of your .protobuf file"
-	@State private var language = CodeEditor.Language.init(rawValue: "protobuf")
+struct CallDataEditView: View {
+	@ObservedObject var viewModel: ConfigDetailViewModel
+	@State private var text: String
+	@State private var language: CodeEditor.Language
+
+	init(_ editorType: CallDataType, _ viewModel: ConfigDetailViewModel) {
+		self.viewModel = viewModel
+		switch editorType {
+		case .protobuf:
+			self.language = CodeEditor.Language.init(rawValue: "protobuf")
+			self.text = viewModel.readProtobufStr()
+		case .message:
+			language = CodeEditor.Language.json
+			self.text = viewModel.readMessageStr()
+		}
+	}
 	
 	var body: some View {
 		VStack {
@@ -29,56 +41,26 @@ struct ProtobufEditView: View {
 				}
 				.standardButton()
 			}
-
 			
-			CodeEditor(source: $protobufText, language: language, theme: .init(rawValue: "xcode"))
-		}
-	}
-}
-
-struct MessageEditView: View {
-	@State private var fullText: String = "Please compose the message in JSON"
-	@State var config = CoeusConfig()
-	
-	init(config: CoeusConfig) {
-		self.config = config
-		print("Message Data FilePath: \(config.messageDataFile)")
-		
-		let messageData = FileManager.default.contents(atPath: config.messageDataFile) ?? Data()
-		
-		
-		let messageStr = String(decoding: messageData, as: UTF8.self)
-		
-		print("Message String: \(messageStr)")
-		
-	}
-	
-	var body: some View {
-		TextEditor(text: $fullText)
-			.foregroundColor(Color.gray)
-			.font(.custom("HelveticaNeue", size: 13))
-			.lineSpacing(5)
-	}
-}
-
-struct SelectedEditorView: View {
-	@Binding var selected: CallDataType
-	@State var config: CoeusConfig
-	
-	@ViewBuilder
-	var body: some View {
-		switch selected {
-		case .message:
-			MessageEditView(config: config)
-		case .protobuf:
-			ProtobufEditView()
+			CodeEditor(source: text, language: language, theme: .init(rawValue: "xcode"))
 		}
 	}
 }
 
 struct ConfigEditView: View {
+	@ObservedObject var viewModel: ConfigDetailViewModel
 	@State private var selectedDataType: CallDataType = .protobuf
 	@State var config: CoeusConfig
+	
+	@ViewBuilder
+	var selectedEditorView: some View {
+		switch selectedDataType {
+		case .message:
+			CallDataEditView(.message, viewModel)
+		case .protobuf:
+			CallDataEditView(.protobuf, viewModel)
+		}
+	}
 	
 	var body: some View {
 		Form {
@@ -90,13 +72,14 @@ struct ConfigEditView: View {
 				.pickerStyle(.segmented)
 			}
 
-			SelectedEditorView(selected: $selectedDataType, config: config)
+			selectedEditorView
 		}
 		.padding()
 	}
 }
 
 struct ConfigDetailView: View {
+	@ObservedObject var viewModel = ConfigDetailViewModel()
 	@Binding var config: CoeusConfig?
 	
 	var InvokeButton: some View {
@@ -115,7 +98,7 @@ struct ConfigDetailView: View {
 				InvokeButton
 			}.padding()
 			
-			ConfigEditView(config: config!)
+			ConfigEditView(viewModel: viewModel, config: config!)
 		}
 	}
 	
