@@ -9,15 +9,15 @@ import Foundation
 
 var defaultConfigStr = """
 {
-	"totalCallNum": 2,
-	"concurrent": 1,
-	"targetHost": "api.coeustool.dev:443",
+	"totalCallNum": -1,
+	"concurrent": -1,
+	"targetHost": "New Configuration",
 	"insecure": false,
-	"timeout": 1000,
-	"protoFile": "./test/testdata/proto/greeter.proto",
-	"methodName": "greeterservice.Greeter.SayHello",
-	"messageDataFile": "./test/testdata/message/messageData.json",
-	"outputFilePath": "./output/output.json"
+	"timeout": 0,
+	"protoFile": "",
+	"methodName": "",
+	"messageDataFile": "",
+	"outputFilePath": ""
 }
 """
 
@@ -27,10 +27,14 @@ class CoeusConfigService: ObservableObject {
 	
 	@Published var configFiles = [CoeusConfig]()
 	let configFileDir: URL
+	let messageFileDir: URL
+	let protobufFileDir: URL
 	
 	private init() {
 		let appStorage = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-		self.configFileDir = appStorage.appendingPathComponent("ConfigFiles/", conformingTo: .directory)
+		self.configFileDir = appStorage.appendingPathComponent("ConfigFiles/Configs", conformingTo: .directory)
+		self.messageFileDir = appStorage.appendingPathComponent("ConfigFiles/Messages", conformingTo: .directory)
+		self.protobufFileDir = appStorage.appendingPathComponent("ConfigFiles/Protos", conformingTo: .directory)
 		
 		if !configFileDirExist() {
 			createConfigFileDir()
@@ -45,19 +49,18 @@ class CoeusConfigService: ObservableObject {
 	
 	func createConfigFileDir() {
 		do {
-			print("Initing files")
 			// Find library dir
 			let fileManager = FileManager.default
 			let appStorage = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
 			
 			print(appStorage.absoluteString)
-			// Create sub-dir
-			let dirURL = appStorage.appendingPathComponent("ConfigFiles/", conformingTo: .directory)
-			try fileManager.createDirectory (at: dirURL, withIntermediateDirectories: true, attributes: nil)
-			print("Dir Str", dirURL.absoluteString)
+			// Create sub-dirs
+			try fileManager.createDirectory (at: configFileDir, withIntermediateDirectories: true, attributes: nil)
+			try fileManager.createDirectory (at: messageFileDir, withIntermediateDirectories: true, attributes: nil)
+			try fileManager.createDirectory (at: protobufFileDir, withIntermediateDirectories: true, attributes: nil)
 
 			// Create document
-			let documentURL = dirURL.appending(path: "InitConfig.json")
+			let documentURL = configFileDir.appending(path: "\(UUID().uuidString).json")
 			print(documentURL.absoluteString)
 			
 			// Write empty document
@@ -141,6 +144,21 @@ class CoeusConfigService: ObservableObject {
 			try FileManager.default.removeItem(at: filePath)
 		} catch {
 			print("An error occured during config file removal")
+		}
+	}
+	
+	func updateConfigFile(_ config: CoeusConfig) -> Bool {
+		do {
+			let encodedConfig = try JSONEncoder().encode(config)
+			let configPath = configFileDir.appending(path: "/\(config.id!.uuidString).json")
+			
+			FileManager.default.createFile(atPath: configPath.path(), contents: encodedConfig)
+			
+			return true
+		} catch {
+			print("An error occured during config file update")
+			
+			return false
 		}
 	}
 }

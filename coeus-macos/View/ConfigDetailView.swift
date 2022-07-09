@@ -15,19 +15,16 @@ enum CallDataType {
 
 struct CallDataEditView: View {
 	@ObservedObject var viewModel: ConfigDetailViewModel
-	@State private var text: String
-	@State private var language: CodeEditor.Language
+	@State var text: String
+	@State var config: CoeusConfig
+	var editorType: CallDataType
+	var language: CodeEditor.Language = .swift
 
-	init(_ editorType: CallDataType, _ viewModel: ConfigDetailViewModel) {
+	init(viewModel: ConfigDetailViewModel, config: CoeusConfig, editorType: CallDataType) {
 		self.viewModel = viewModel
-		switch editorType {
-		case .protobuf:
-			self.language = CodeEditor.Language.init(rawValue: "protobuf")
-			self.text = viewModel.readProtobufStr()
-		case .message:
-			language = CodeEditor.Language.json
-			self.text = viewModel.readMessageStr()
-		}
+		self.editorType = editorType
+		_config = State(initialValue: config)
+		_text = State(initialValue: viewModel.readCallData(editorType, config))
 	}
 	
 	var body: some View {
@@ -35,14 +32,14 @@ struct CallDataEditView: View {
 			HStack {
 				Spacer()
 				Button {
-					print("Save pressed")
+					self.config = viewModel.updateCallData(editorType, config, text)
 				} label: {
 					Text("Save")
 				}
 				.standardButton()
 			}
 			
-			CodeEditor(source: text, language: language, theme: .init(rawValue: "xcode"))
+			CodeEditor(source: $text, language: language, theme: .init(rawValue: "xcode"))
 		}
 	}
 }
@@ -56,9 +53,9 @@ struct ConfigEditView: View {
 	var selectedEditorView: some View {
 		switch selectedDataType {
 		case .message:
-			CallDataEditView(.message, viewModel)
+			CallDataEditView(viewModel: viewModel, config: config, editorType: .message)
 		case .protobuf:
-			CallDataEditView(.protobuf, viewModel)
+			CallDataEditView(viewModel: viewModel, config: config, editorType: .protobuf)
 		}
 	}
 	
@@ -73,6 +70,9 @@ struct ConfigEditView: View {
 			}
 
 			selectedEditorView
+				.onDisappear {
+					
+				}
 		}
 		.padding()
 	}
