@@ -84,7 +84,7 @@ struct ConfigDetailView: View {
 	
 	var InvokeButton: some View {
 		Button {
-			print("Invoking")
+			BinaryCallService.shared.InvokeRPC(config ?? CoeusConfig())
 		} label: {
 			Image(systemName: "paperplane")
 		}
