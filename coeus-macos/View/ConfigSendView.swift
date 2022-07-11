@@ -28,7 +28,7 @@ struct ConfigDisplayRowView: View {
 
 struct SendView: View {
 	@ObservedObject var configService = CoeusConfigService.shared
-	@State private var selected: CoeusConfig?
+	@State var selected: CoeusConfig?
 
 	init() {
 		self.configService = CoeusConfigService.shared

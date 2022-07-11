@@ -80,11 +80,12 @@ struct ConfigEditView: View {
 
 struct ConfigDetailView: View {
 	@ObservedObject var viewModel = ConfigDetailViewModel()
+	@State var responseText: String = "Invoke above methods to display a response"
 	@Binding var config: CoeusConfig?
 	
 	var InvokeButton: some View {
 		Button {
-			BinaryCallService.shared.InvokeRPC(config ?? CoeusConfig())
+			self.responseText = BinaryCallService.shared.InvokeRPC(config ?? CoeusConfig())
 		} label: {
 			Image(systemName: "paperplane")
 		}
@@ -103,7 +104,7 @@ struct ConfigDetailView: View {
 	}
 	
 	var RemoteCallResponseSection: some View {
-		Text("Invoke above methods to display a response")
+		Text(responseText)
 	}
 	
 	var body: some View {
@@ -112,7 +113,8 @@ struct ConfigDetailView: View {
 				ConfigEditSection
 					.frame(minHeight: 250, idealHeight: 350)
 				
-				RemoteCallResponseSection
+//				RemoteCallResponseSection
+				Text(responseText)
 					.frame(maxWidth: .infinity, minHeight: 250, maxHeight: .infinity)
 			}
 		} else {

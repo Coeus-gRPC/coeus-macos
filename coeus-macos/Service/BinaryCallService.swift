@@ -10,7 +10,7 @@ import Foundation
 class BinaryCallService: ObservableObject {
 	static let shared = BinaryCallService()
 	
-	func InvokeRPC(_ config: CoeusConfig) {
+	func InvokeRPC(_ config: CoeusConfig) -> String {
 		var message = ["--config"]
 		let exeURL = Bundle.main.url(forResource: "coeus-core", withExtension: "")
 		
@@ -35,9 +35,9 @@ class BinaryCallService: ObservableObject {
 		let output = String(decoding: outputData, as: UTF8.self)
 		let error = String(decoding: errorData, as: UTF8.self)
 		
-		print("Well well well")
 		print(error)
 		print(output)
+		
+		return error == "" ? output : error
 	}
-	
 }
