@@ -66,8 +66,10 @@ class ConfigDetailViewModel: ObservableObject {
 		let protoStr = String(decoding: protoData, as: UTF8.self)
 		
 		if protoStr == "" {
+			print("Proto str is empty...")
 			return "Please enter the definition of your .protobuf file here"
 		} else {
+			print("Proto str is NOT empty...: \(protoStr)")
 			return protoStr
 		}
 	}

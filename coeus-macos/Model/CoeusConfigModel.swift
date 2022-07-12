@@ -32,4 +32,10 @@ struct CoeusConfig: Codable, Identifiable, Hashable {
 		self.messageDataFile = messageDataFile
 		self.outputFilePath = outputFilePath
 	}
+	
+	static func NewDummyConfig() -> CoeusConfig {
+		var newDummy = CoeusConfig()
+		newDummy.id = nil
+		return newDummy
+	}
 }
