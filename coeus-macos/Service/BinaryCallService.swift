@@ -14,7 +14,7 @@ class BinaryCallService: ObservableObject {
 		var message = ["--config"]
 		let exeURL = Bundle.main.url(forResource: "coeus-core", withExtension: "")
 		
-		let configURL = CoeusConfigService.shared.configFileDir.appending(path: "\(UUID().uuidString).json")
+		let configURL = CoeusConfigService.shared.configFileDir.appending(path: "\(config.id!.uuidString).json")
 		
 		message.append(configURL.relativePath)
 		

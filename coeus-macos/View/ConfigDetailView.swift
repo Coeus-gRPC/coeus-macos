@@ -78,45 +78,57 @@ struct ConfigEditView: View {
 	}
 }
 
-struct ConfigDetailView: View {
-	@ObservedObject var viewModel = ConfigDetailViewModel()
-	@State var responseText: String = "Invoke above methods to display a response"
-	@Binding var config: CoeusConfig?
-	
-	var InvokeButton: some View {
-		Button {
-			self.responseText = BinaryCallService.shared.InvokeRPC(config ?? CoeusConfig())
-		} label: {
-			Image(systemName: "paperplane")
-		}
+struct ConfigEditSection: View {
+	@ObservedObject var viewModel: ConfigDetailViewModel
+	@State var responseText = "Invoke above methods to display a response"
+	@State var config: CoeusConfig
+
+	init(_ config: CoeusConfig, _ viewModel: ConfigDetailViewModel) {
+		self._config = State(initialValue: config)
+		self.viewModel = viewModel
 	}
 	
-	var ConfigEditSection: some View {
-		VStack {
-			HStack {
-				Text(config!.targetHost).bold().font(.title)
-				Spacer()
-				InvokeButton
-			}.padding()
-			
-			ConfigEditView(viewModel: viewModel, config: config!)
-		}
-	}
 	
 	var RemoteCallResponseSection: some View {
 		Text(responseText)
 	}
 	
+	var InvokeButton: some View {
+		Button {
+			self.responseText = BinaryCallService.shared.InvokeRPC(config)
+		} label: {
+			Image(systemName: "paperplane")
+		}
+	}
+	
+	var body: some View {
+		VSplitView {
+			VStack {
+				HStack {
+					TextField("Wulala", text: $config.targetHost)
+					Text(config.targetHost).bold().font(.title)
+					Spacer()
+					InvokeButton
+				}.padding()
+				
+				ConfigEditView(viewModel: viewModel, config: config)
+			}
+				.frame(maxWidth: .infinity, minHeight: 350, maxHeight: .infinity)
+			
+			RemoteCallResponseSection
+				.frame(maxWidth: .infinity, minHeight: 250, maxHeight: .infinity)
+		}
+	}
+}
+
+struct ConfigDetailView: View {
+	@ObservedObject var viewModel = ConfigDetailViewModel()
+	@Binding var config: CoeusConfig?
+
 	var body: some View {
 		if config != nil {
-			VSplitView {
-				ConfigEditSection
-					.frame(minHeight: 250, idealHeight: 350)
-				
-//				RemoteCallResponseSection
-				Text(responseText)
-					.frame(maxWidth: .infinity, minHeight: 250, maxHeight: .infinity)
-			}
+			ConfigEditSection(config!, viewModel)
+				.frame(minHeight: 250, idealHeight: 600)
 		} else {
 			Text("Please Select a config")
 		}
