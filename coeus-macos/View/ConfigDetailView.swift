@@ -51,8 +51,14 @@ struct ConfigEditView: View {
 
 					CodeEditor(source: $text, language: language, theme: .init(rawValue: "xcode"))
 				}
+			}
 		}
-		}
+		.onChange(of: selectedDataType, perform: { newSelection in
+			text = viewModel.readCallData(newSelection, config)
+		})
+		.onChange(of: config, perform: { newConfig in
+			text = viewModel.readCallData(selectedDataType, newConfig)
+		})
 		.padding()
 	}
 }
