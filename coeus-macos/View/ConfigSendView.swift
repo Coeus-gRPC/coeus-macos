@@ -51,12 +51,13 @@ struct SendView: View {
 					}
 					.contextMenu {
 						Button {
+							selected = CoeusConfig.NewDummyConfig()
 							configService.deleteConfigFile(config)
 							configService.syncConfigFiles()
 							} label: {
 								HStack {
 									Image(systemName: "minus.square")
-									Text("Menu title")
+									Text("Remove Config")
 								}
 							}
 					}

@@ -58,15 +58,6 @@ class CoeusConfigService: ObservableObject {
 			try fileManager.createDirectory (at: configFileDir, withIntermediateDirectories: true, attributes: nil)
 			try fileManager.createDirectory (at: messageFileDir, withIntermediateDirectories: true, attributes: nil)
 			try fileManager.createDirectory (at: protobufFileDir, withIntermediateDirectories: true, attributes: nil)
-
-			// Create document
-			let documentURL = configFileDir.appending(path: "\(UUID().uuidString).json")
-			print(documentURL.absoluteString)
-			
-			// Write empty document
-			let success = FileManager.default.createFile(atPath: documentURL.path(), contents: defaultConfigStr.data(using: .utf8))
-			
-			print("File creation was \(success)")
 		} catch {
 			print("An error occured during dirctory initialization")
 		}
@@ -149,6 +140,10 @@ class CoeusConfigService: ObservableObject {
 	
 	func updateConfigFile(_ config: CoeusConfig) -> Bool {
 		do {
+			if config.targetHost == "" {
+				return false
+			}
+			
 			let encodedConfig = try JSONEncoder().encode(config)
 			let configPath = configFileDir.appending(path: "/\(config.id.uuidString).json")
 			
