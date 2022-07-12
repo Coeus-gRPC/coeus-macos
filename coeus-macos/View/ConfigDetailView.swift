@@ -18,13 +18,14 @@ struct ConfigEditView: View {
 	@State private var selectedDataType: CallDataType = .protobuf
 	@Binding var config: CoeusConfig
 	@State var text: String = ""
-	var language: CodeEditor.Language = .swift
+	@State var language: CodeEditor.Language = .swift
 	
 	init(viewModel: ConfigDetailViewModel, config: Binding<CoeusConfig>) {
 		self.viewModel = viewModel
 		_config = config
 		
 		_text = State(initialValue: viewModel.readCallData(selectedDataType, config.wrappedValue))
+		_language = State(initialValue: viewModel.setCodeEditorLanguage(selectedDataType))
 	}
 
 	var body: some View {
@@ -55,9 +56,11 @@ struct ConfigEditView: View {
 		}
 		.onChange(of: selectedDataType, perform: { newSelection in
 			text = viewModel.readCallData(newSelection, config)
+			language = viewModel.setCodeEditorLanguage(selectedDataType)
 		})
 		.onChange(of: config, perform: { newConfig in
 			text = viewModel.readCallData(selectedDataType, newConfig)
+			language = viewModel.setCodeEditorLanguage(selectedDataType)
 		})
 		.padding()
 	}

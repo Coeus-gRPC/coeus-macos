@@ -5,6 +5,7 @@
 //  Created by Yifan Huang on 7/10/22.
 //
 
+import CodeEditor
 import Foundation
 
 class ConfigDetailViewModel: ObservableObject {
@@ -23,6 +24,15 @@ class ConfigDetailViewModel: ObservableObject {
 			return readProtobufStr(config)
 		case .message:
 			return readMessageStr(config)
+		}
+	}
+	
+	func setCodeEditorLanguage(_ type: CallDataType) -> CodeEditor.Language {
+		switch type {
+		case .protobuf:
+			return CodeEditor.Language.init(rawValue: "protobuf")
+		case .message:
+			return CodeEditor.Language.json
 		}
 	}
 	
@@ -81,7 +91,7 @@ class ConfigDetailViewModel: ObservableObject {
 			let protoFileName = config.id.uuidString + ".proto"
 			let protoFilePath = CoeusConfigService.shared.protobufFileDir.appending(path: "\(protoFileName)")
 			
-			FileManager.default.createFile(atPath: protoFilePath.path(), contents: protoFileName.data(using: .utf8))
+			FileManager.default.createFile(atPath: protoFilePath.path(), contents: newProtobuf.data(using: .utf8))
 			
 			var newConfig = config
 			newConfig.protoFile = protoFilePath.path()
