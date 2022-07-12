@@ -89,9 +89,19 @@ struct ConfigEditSection: View {
 		VSplitView {
 			VStack {
 				HStack {
-					TextField("Wulala", text: $config.targetHost)
-
+					TextField("", text: $config.targetHost)
+						.font(.largeTitle)
+						.onSubmit {
+							print("Submitting...?")
+							CoeusConfigService.shared.updateConfigFile(config)
+						}
+						.onDisappear {
+							print("Submitting...?/ disappear")
+							CoeusConfigService.shared.updateConfigFile(config)
+						}
+					
 					Spacer()
+						.frame(width: 150)
 					InvokeButton
 				}.padding()
 				
@@ -110,7 +120,7 @@ struct ConfigDetailView: View {
 	@Binding var config: CoeusConfig
 
 	var body: some View {
-		if config.id != nil {
+		if config.targetHost != "" {
 			ConfigEditSection($config, viewModel)
 				.frame(minHeight: 250, idealHeight: 600)
 		} else {

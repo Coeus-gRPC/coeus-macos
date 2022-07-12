@@ -47,7 +47,7 @@ class ConfigDetailViewModel: ObservableObject {
 			return config
 		} else {
 			// File not exist, we need to create the file, update its content and record the file path
-			let messageFileName = config.id!.uuidString + "_message.json"
+			let messageFileName = config.id.uuidString + "_message.json"
 			let messageFilePath = CoeusConfigService.shared.messageFileDir.appending(path: "\(messageFileName)")
 			
 			FileManager.default.createFile(atPath: messageFilePath.path(), contents: newMessage.data(using: .utf8))
@@ -74,11 +74,11 @@ class ConfigDetailViewModel: ObservableObject {
 	
 	private func updateProtobufStr(_ config: CoeusConfig, _ newProtobuf: String) -> CoeusConfig {
 		if FileManager.default.fileExists(atPath: config.protoFile) {
-			var success = FileManager.default.createFile(atPath: config.protoFile, contents: newProtobuf.data(using: .utf8))
+			_ = FileManager.default.createFile(atPath: config.protoFile, contents: newProtobuf.data(using: .utf8))
 			
 			return config
 		} else {
-			let protoFileName = config.id!.uuidString + ".proto"
+			let protoFileName = config.id.uuidString + ".proto"
 			let protoFilePath = CoeusConfigService.shared.protobufFileDir.appending(path: "\(protoFileName)")
 			
 			FileManager.default.createFile(atPath: protoFilePath.path(), contents: protoFileName.data(using: .utf8))

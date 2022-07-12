@@ -8,7 +8,7 @@
 import Foundation
 
 struct CoeusConfig: Codable, Identifiable, Hashable {
-	var id: UUID?
+	var id: UUID
 	
 	var totalCallNum: Int
 	var concurrent: Int
@@ -35,7 +35,8 @@ struct CoeusConfig: Codable, Identifiable, Hashable {
 	
 	static func NewDummyConfig() -> CoeusConfig {
 		var newDummy = CoeusConfig()
-		newDummy.id = nil
+		newDummy.id = UUID()
+		newDummy.targetHost = ""
 		return newDummy
 	}
 }

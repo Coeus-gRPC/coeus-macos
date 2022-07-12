@@ -18,7 +18,7 @@ struct ConfigDisplayRowView: View {
 				.frame(width: 3, height: 30)
 				
 			Image(systemName: "mail")
-			Text(config.id!.uuidString)
+			Text(config.id.uuidString)
 				.fixedSize()
 		}
 		.background(self.isSelected ? Color.LightGrey : .clear)

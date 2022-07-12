@@ -85,7 +85,7 @@ class CoeusConfigService: ObservableObject {
 				let idStr = configFilePath.lastPathComponent
 				let newIdStr = String(idStr[..<(idStr.lastIndex(of: ".") ?? idStr.endIndex)])
 
-				configStruct.id = UUID(uuidString: newIdStr)
+				configStruct.id = UUID(uuidString: newIdStr)!
 
 				inputConfigs.append(configStruct)
 			}
@@ -124,7 +124,7 @@ class CoeusConfigService: ObservableObject {
 			let emptyConfig = CoeusConfig()
 			let encodedConfig = try JSONEncoder().encode(emptyConfig)
 			
-			let newConfigPath = configFileDir.appending(path: "/\(emptyConfig.id!.uuidString).json")
+			let newConfigPath = configFileDir.appending(path: "/\(emptyConfig.id.uuidString).json")
 			
 			FileManager.default.createFile(atPath: newConfigPath.path(), contents: encodedConfig)
 
@@ -138,7 +138,7 @@ class CoeusConfigService: ObservableObject {
 	
 	func deleteConfigFile(_ config: CoeusConfig) {
 		do {
-			let fileName = config.id?.uuidString ?? ""
+			let fileName = config.id.uuidString
 			let filePath = configFileDir.appending(path: "/\(fileName).json")
 			
 			try FileManager.default.removeItem(at: filePath)
@@ -150,7 +150,7 @@ class CoeusConfigService: ObservableObject {
 	func updateConfigFile(_ config: CoeusConfig) -> Bool {
 		do {
 			let encodedConfig = try JSONEncoder().encode(config)
-			let configPath = configFileDir.appending(path: "/\(config.id!.uuidString).json")
+			let configPath = configFileDir.appending(path: "/\(config.id.uuidString).json")
 			
 			FileManager.default.createFile(atPath: configPath.path(), contents: encodedConfig)
 			
