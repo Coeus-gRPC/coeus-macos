@@ -88,6 +88,13 @@ struct ConfigEditSection: View {
 		}
 	}
 	
+	var ConfigSettings: some View {
+		HStack {
+			Toggle("Insecure", isOn: $config.insecure)
+					.toggleStyle(.checkbox)
+		}
+	}
+	
 	var body: some View {
 		VSplitView {
 			VStack {
@@ -103,8 +110,10 @@ struct ConfigEditSection: View {
 							CoeusConfigService.shared.updateConfigFile(config)
 						}
 					
+					ConfigSettings
+					
 					Spacer()
-						.frame(width: 150)
+						.frame(width: 250)
 					InvokeButton
 				}.padding()
 				

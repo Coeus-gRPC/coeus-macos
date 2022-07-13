@@ -47,7 +47,7 @@ struct SendView: View {
 							self.selected = config
 						}
 					} label: {
-						ConfigDisplayRowView(config: config, isSelected: self.selected == config)
+						ConfigDisplayRowView(config: config, isSelected: self.selected.id == config.id)
 					}
 					.contextMenu {
 						Button {
