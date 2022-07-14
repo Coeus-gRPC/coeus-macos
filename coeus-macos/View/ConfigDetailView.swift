@@ -89,9 +89,58 @@ struct ConfigEditSection: View {
 	}
 	
 	var ConfigSettings: some View {
-		HStack {
-			Toggle("Insecure", isOn: $config.insecure)
-					.toggleStyle(.checkbox)
+		Grid {
+			GridRow {
+				// Target Host
+				HStack {
+					Text("Taget Host: ")
+					TextField("", text: $config.targetHost)
+						.font(.title)
+				}
+				
+				// Call Number
+				HStack {
+					Text("Total Call Count: ")
+					TextField("", text: Binding(
+						get: { String(config.totalCallNum )},
+						set: {config.totalCallNum = Int($0) ?? 0}
+					))
+						.font(.title2)
+				}
+			}
+			
+			GridRow {
+				HStack {
+					Text("Concurrent Count: ")
+					TextField("", text: Binding(
+						get: { String(config.concurrent )},
+						set: {config.concurrent = Int($0) ?? 1}
+					))
+						.font(.title2)
+				}
+				
+				HStack {
+					Text("Method Name: ")
+					TextField("", text: $config.methodName)
+						.font(.title2)
+				}
+			}
+			
+			GridRow {
+				HStack {
+					Text("Timout: ")
+					TextField("", text: Binding(
+						get: { String(config.timeout )},
+						set: {config.timeout = Int($0) ?? 500}
+					))
+						.font(.title2)
+					Text("ms")
+				}
+				
+				Toggle("Insecure", isOn: $config.insecure)
+						.toggleStyle(.checkbox)
+			}
+			
 		}
 	}
 	
@@ -99,8 +148,11 @@ struct ConfigEditSection: View {
 		VSplitView {
 			VStack {
 				HStack {
-					TextField("", text: $config.targetHost)
-						.font(.largeTitle)
+					ConfigSettings
+						.onChange(of: config, perform: { newConfig in
+							print("on change")
+							CoeusConfigService.shared.updateConfigFile(config)
+						})
 						.onSubmit {
 							print("Submitting...?")
 							CoeusConfigService.shared.updateConfigFile(config)
@@ -110,10 +162,8 @@ struct ConfigEditSection: View {
 							CoeusConfigService.shared.updateConfigFile(config)
 						}
 					
-					ConfigSettings
-					
 					Spacer()
-						.frame(width: 250)
+						.frame(width: 25)
 					InvokeButton
 				}.padding()
 				
