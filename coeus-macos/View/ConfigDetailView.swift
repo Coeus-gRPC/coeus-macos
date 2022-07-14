@@ -82,6 +82,9 @@ struct ConfigEditSection: View {
 	
 	var InvokeButton: some View {
 		Button {
+			CoeusReportService.shared.prepareOutput(&config)
+			print("Well, the new report path is:\(config.outputFilePath)")
+			CoeusConfigService.shared.updateConfigFile(config)
 			self.responseText = BinaryCallService.shared.InvokeRPC(config)
 		} label: {
 			Image(systemName: "paperplane")
@@ -164,6 +167,7 @@ struct ConfigEditSection: View {
 					
 					Spacer()
 						.frame(width: 25)
+					
 					InvokeButton
 				}.padding()
 				
