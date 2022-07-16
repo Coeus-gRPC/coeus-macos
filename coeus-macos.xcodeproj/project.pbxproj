@@ -18,6 +18,7 @@
 		D62CC27E28710895002A221F /* ConfigDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CC27D28710895002A221F /* ConfigDetailView.swift */; };
 		D64E4303287D388B0060CAD5 /* NoSelectionPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E4302287D388B0060CAD5 /* NoSelectionPlaceholderView.swift */; };
 		D64E43052880DE8C0060CAD5 /* CoeusReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E43042880DE8C0060CAD5 /* CoeusReportService.swift */; };
+		D64E43072880E3DE0060CAD5 /* CoeusReportDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E43062880E3DE0060CAD5 /* CoeusReportDataModel.swift */; };
 		D66DD243286CD01400E69A31 /* CoeusMacosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */; };
 		D66DD247286CD01500E69A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD246286CD01500E69A31 /* Assets.xcassets */; };
 		D66DD24A286CD01500E69A31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D66DD249286CD01500E69A31 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		D62CC27D28710895002A221F /* ConfigDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDetailView.swift; sourceTree = "<group>"; };
 		D64E4302287D388B0060CAD5 /* NoSelectionPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSelectionPlaceholderView.swift; sourceTree = "<group>"; };
 		D64E43042880DE8C0060CAD5 /* CoeusReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeusReportService.swift; sourceTree = "<group>"; };
+		D64E43062880E3DE0060CAD5 /* CoeusReportDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeusReportDataModel.swift; sourceTree = "<group>"; };
 		D66DD23F286CD01400E69A31 /* coeus-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coeus-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66DD242286CD01400E69A31 /* CoeusMacosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeusMacosApp.swift; sourceTree = "<group>"; };
 		D66DD246286CD01500E69A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				D6BA49CC286D1010000EDF1A /* CoeusConfigModel.swift */,
 				D66E172B2874E34C00B876E8 /* ColorScheme.swift */,
+				D64E43062880E3DE0060CAD5 /* CoeusReportDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				D66E172C2874E34C00B876E8 /* ColorScheme.swift in Sources */,
 				D6E2C1D3286E8CBD007BA899 /* ConfigAddViewModel.swift in Sources */,
 				D64E4303287D388B0060CAD5 /* NoSelectionPlaceholderView.swift in Sources */,
+				D64E43072880E3DE0060CAD5 /* CoeusReportDataModel.swift in Sources */,
 				D62B622D2873BF4500746ADF /* DetailColumn.swift in Sources */,
 				D624AF3E287B60D100EE8AC1 /* ConfigDetailViewModel.swift in Sources */,
 				D62B62282873B9F200746ADF /* ContentView.swift in Sources */,
