@@ -17,7 +17,7 @@ struct DetailColumn: View {
 		case .endpointsAdd:
 			ConfigAddView()
 		case .reportsAll:
-			SampleView()
+			AllReportView()
 		case .reportsNew:
 			SampleView()
 		}
