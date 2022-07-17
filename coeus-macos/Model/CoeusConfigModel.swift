@@ -37,6 +37,7 @@ struct CoeusConfig: Codable, Identifiable, Hashable {
 		var newDummy = CoeusConfig()
 		newDummy.id = UUID()
 		newDummy.targetHost = ""
+		
 		return newDummy
 	}
 }
