@@ -19,13 +19,16 @@ struct Collapsible<Content: View>: View {
 				collapsed.toggle()
 			} label: {
 				HStack {
+					Image(systemName: "mail.stack")
 					label()
+						.fixedSize()
 					Spacer()
 					Image(systemName: collapsed ? "chevron.down" : "chevron.up")
 				}
-				.padding(.bottom, 1)
-				.background(Color.white.opacity(0.01))
+				.frame(height: 15)
+				.padding()
 			}
+			.buttonStyle(.plain)
 			
 			VStack {
 				content()
@@ -34,6 +37,9 @@ struct Collapsible<Content: View>: View {
 			.clipped()
 			.animation(.easeOut, value: collapsed)
 			.transition(.slide)
+			
+			Spacer()
 		}
+		.background(Color.white)
 	}
 }
