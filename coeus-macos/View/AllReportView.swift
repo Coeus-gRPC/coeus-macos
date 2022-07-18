@@ -14,7 +14,7 @@ struct ReportDetailView: View {
 		if report.totalCallNum != -1 {
 			ReportVisualizationView()
 		} else {
-			NoSelectionPlaceholderView()
+			NoSelectionPlaceholderView(.report)
 		}
 	}
 }
@@ -25,7 +25,6 @@ struct AllReportView: View {
 	init() {
 		self._selectedReport = State(initialValue: CoeusReport.NewDummyReport())
 	}
-	
 	
 	var ReportSelectView: some View {
 		Collapsible {
@@ -43,6 +42,7 @@ struct AllReportView: View {
 			ReportSelectView
 
 			ReportDetailView(report: $selectedReport)
+				.frame(minWidth: 550, maxWidth: .infinity, maxHeight: .infinity)
 		}
 	}
 }

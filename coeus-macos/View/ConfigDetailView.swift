@@ -190,7 +190,7 @@ struct ConfigDetailView: View {
 			ConfigEditSection($config, viewModel)
 				.frame(minHeight: 250, idealHeight: 600)
 		} else {
-			NoSelectionPlaceholderView()
+			NoSelectionPlaceholderView(.config)
 		}
 	}
 }
